@@ -12,6 +12,7 @@
 		76FD3D2D2096FCCA005657FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D2B2096FCCA005657FB /* Main.storyboard */; };
 		76FD3D2F2096FCCB005657FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D2E2096FCCB005657FB /* Assets.xcassets */; };
 		76FD3D322096FCCB005657FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D302096FCCB005657FB /* LaunchScreen.storyboard */; };
+		76FD3D3B209705A5005657FB /* TicketcoServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D3A209705A5005657FB /* TicketcoServerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		76FD3D2E2096FCCB005657FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76FD3D312096FCCB005657FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76FD3D332096FCCB005657FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76FD3D3A209705A5005657FB /* TicketcoServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketcoServerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		76FD3D262096FCCA005657FB /* Ticketco */ = {
 			isa = PBXGroup;
 			children = (
+				76FD3D3920970584005657FB /* API */,
 				76FD3D272096FCCA005657FB /* AppDelegate.swift */,
 				76FD3D292096FCCA005657FB /* ViewController.swift */,
 				76FD3D2B2096FCCA005657FB /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				76FD3D332096FCCB005657FB /* Info.plist */,
 			);
 			path = Ticketco;
+			sourceTree = "<group>";
+		};
+		76FD3D3920970584005657FB /* API */ = {
+			isa = PBXGroup;
+			children = (
+				76FD3D3A209705A5005657FB /* TicketcoServerManager.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76FD3D3B209705A5005657FB /* TicketcoServerManager.swift in Sources */,
 				76FD3D2A2096FCCA005657FB /* ViewController.swift in Sources */,
 				76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */,
 			);
