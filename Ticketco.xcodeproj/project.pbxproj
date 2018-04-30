@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BC303EAD4F0CF70F1C27A43 /* Pods_Ticketco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44702481C94BB88043132038 /* Pods_Ticketco.framework */; };
 		76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D272096FCCA005657FB /* AppDelegate.swift */; };
 		76FD3D2A2096FCCA005657FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D292096FCCA005657FB /* ViewController.swift */; };
 		76FD3D2D2096FCCA005657FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D2B2096FCCA005657FB /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0752F2C7B510F05A1F244F76 /* Pods-Ticketco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ticketco.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ticketco/Pods-Ticketco.debug.xcconfig"; sourceTree = "<group>"; };
+		44702481C94BB88043132038 /* Pods_Ticketco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ticketco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64E07363F44206F70167D19A /* Pods-Ticketco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ticketco.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ticketco/Pods-Ticketco.release.xcconfig"; sourceTree = "<group>"; };
 		76FD3D242096FCCA005657FB /* Ticketco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FD3D272096FCCA005657FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76FD3D292096FCCA005657FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC303EAD4F0CF70F1C27A43 /* Pods_Ticketco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36C28CAB8033FE375662D801 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0752F2C7B510F05A1F244F76 /* Pods-Ticketco.debug.xcconfig */,
+				64E07363F44206F70167D19A /* Pods-Ticketco.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5318022FBD48709D76B9002A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44702481C94BB88043132038 /* Pods_Ticketco.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		76FD3D1B2096FCC9005657FB = {
 			isa = PBXGroup;
 			children = (
 				76FD3D262096FCCA005657FB /* Ticketco */,
 				76FD3D252096FCCA005657FB /* Products */,
+				36C28CAB8033FE375662D801 /* Pods */,
+				5318022FBD48709D76B9002A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,9 +106,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76FD3D362096FCCB005657FB /* Build configuration list for PBXNativeTarget "Ticketco" */;
 			buildPhases = (
+				1A69758FA0D3070D8CD35D93 /* [CP] Check Pods Manifest.lock */,
 				76FD3D202096FCCA005657FB /* Sources */,
 				76FD3D212096FCCA005657FB /* Frameworks */,
 				76FD3D222096FCCA005657FB /* Resources */,
+				92CAFC3392EF331D9A301ECB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,6 +166,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A69758FA0D3070D8CD35D93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ticketco-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92CAFC3392EF331D9A301ECB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Ticketco/Pods-Ticketco-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ticketco/Pods-Ticketco-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		76FD3D202096FCCA005657FB /* Sources */ = {
@@ -290,11 +363,13 @@
 		};
 		76FD3D372096FCCB005657FB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0752F2C7B510F05A1F244F76 /* Pods-Ticketco.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YKGJ3WJN7K;
 				INFOPLIST_FILE = Ticketco/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,11 +383,13 @@
 		};
 		76FD3D382096FCCB005657FB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64E07363F44206F70167D19A /* Pods-Ticketco.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YKGJ3WJN7K;
 				INFOPLIST_FILE = Ticketco/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
