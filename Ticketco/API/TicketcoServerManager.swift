@@ -21,7 +21,7 @@ enum TicketcoErrorCode: Int {
     case success        = 200
     case internalError  = 500
 
-    case unrecognizedCode = 0
+    case unknown = 0
 }
 
 class TicketcoServerManager {
@@ -38,7 +38,7 @@ class TicketcoServerManager {
 
     func sendRequest(endpoint: String,
                      method: HTTPMethod = .get,
-                     parameters: Parameters = Parameters()) -> Observable<(JSON?, TicketcoError?)> {
+                     parameters: Parameters = Parameters()) -> Observable<(JSON, TicketcoError?)> {
         let fullURL = baseURL + endpoint
         let fullParameters = parameters.dictionary(byAppending: ["token": authorizationToken])
 
@@ -55,14 +55,14 @@ class TicketcoServerManager {
     }
 
     private static func validateResponse(_ response: HTTPURLResponse) -> TicketcoError? {
-        let statusCode = TicketcoErrorCode(rawValue: response.statusCode) ?? .unrecognizedCode
+        let statusCode = TicketcoErrorCode(rawValue: response.statusCode) ?? .unknown
 
         switch statusCode {
         case .success:
             return nil
         case .internalError:
             return .serverError(statusCode, response.description)
-        case .unrecognizedCode:
+        case .unknown:
             fatalError("Unrecognized code was sent from server: \n \(response.description)")
         }
     }

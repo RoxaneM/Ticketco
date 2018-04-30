@@ -10,6 +10,8 @@
 		3BC303EAD4F0CF70F1C27A43 /* Pods_Ticketco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44702481C94BB88043132038 /* Pods_Ticketco.framework */; };
 		7684EDE9209719D70023C216 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDE8209719D70023C216 /* Dictionary+Extension.swift */; };
 		7684EDEB20971EC30023C216 /* TicketcoServerManager+Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDEA20971EC30023C216 /* TicketcoServerManager+Tickets.swift */; };
+		7684EDEE209722A20023C216 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDED209722A20023C216 /* Ticket.swift */; };
+		7684EDF0209724BD0023C216 /* TicketcoConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDEF209724BD0023C216 /* TicketcoConstants.swift */; };
 		76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D272096FCCA005657FB /* AppDelegate.swift */; };
 		76FD3D2A2096FCCA005657FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D292096FCCA005657FB /* ViewController.swift */; };
 		76FD3D2D2096FCCA005657FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D2B2096FCCA005657FB /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 		64E07363F44206F70167D19A /* Pods-Ticketco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ticketco.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ticketco/Pods-Ticketco.release.xcconfig"; sourceTree = "<group>"; };
 		7684EDE8209719D70023C216 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		7684EDEA20971EC30023C216 /* TicketcoServerManager+Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketcoServerManager+Tickets.swift"; sourceTree = "<group>"; };
+		7684EDED209722A20023C216 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		7684EDEF209724BD0023C216 /* TicketcoConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketcoConstants.swift; sourceTree = "<group>"; };
 		76FD3D242096FCCA005657FB /* Ticketco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FD3D272096FCCA005657FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76FD3D292096FCCA005657FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +75,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7684EDEC2097228A0023C216 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7684EDED209722A20023C216 /* Ticket.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		76FD3D1B2096FCC9005657FB = {
 			isa = PBXGroup;
 			children = (
@@ -94,12 +106,14 @@
 			children = (
 				7684EDE7209719B30023C216 /* Extensions */,
 				76FD3D3920970584005657FB /* API */,
+				7684EDEC2097228A0023C216 /* Model */,
 				76FD3D272096FCCA005657FB /* AppDelegate.swift */,
 				76FD3D292096FCCA005657FB /* ViewController.swift */,
 				76FD3D2B2096FCCA005657FB /* Main.storyboard */,
 				76FD3D2E2096FCCB005657FB /* Assets.xcassets */,
 				76FD3D302096FCCB005657FB /* LaunchScreen.storyboard */,
 				76FD3D332096FCCB005657FB /* Info.plist */,
+				7684EDEF209724BD0023C216 /* TicketcoConstants.swift */,
 			);
 			path = Ticketco;
 			sourceTree = "<group>";
@@ -249,8 +263,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				76FD3D3B209705A5005657FB /* TicketcoServerManager.swift in Sources */,
+				7684EDEE209722A20023C216 /* Ticket.swift in Sources */,
 				7684EDEB20971EC30023C216 /* TicketcoServerManager+Tickets.swift in Sources */,
 				76FD3D2A2096FCCA005657FB /* ViewController.swift in Sources */,
+				7684EDF0209724BD0023C216 /* TicketcoConstants.swift in Sources */,
 				76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */,
 				7684EDE9209719D70023C216 /* Dictionary+Extension.swift in Sources */,
 			);

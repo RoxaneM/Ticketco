@@ -11,16 +11,20 @@ import SwiftyJSON
 
 extension TicketcoServerManager {
 
-    func getTickets() -> Observable<Void> {
+    func getTickets() -> Observable<[Ticket]> {
         return Observable.create { [weak self] observer in
             let endpoint = "items"
             _ = self?.sendRequest(endpoint: endpoint)
-                .subscribe(onNext: { (json, error) in
+                .subscribe(onNext: { [weak self] (json, error) in
                     if let error = error {
                         observer.onError(error)
                     } else {
-                        print(json ?? "lap")
-                        observer.onCompleted()
+
+                        if let tickets = self?.parseTickets(json) {
+                            observer.onNext(tickets)
+                        } else {
+                            observer.onError(TicketcoError.invalidJSON(json.stringValue))
+                        }
                     }
                 }, onError: { error in
                     print(error)
@@ -29,5 +33,19 @@ extension TicketcoServerManager {
 
             return Disposables.create()
         }
+    }
+
+    private func parseTickets(_ json: JSON) -> [Ticket]? {
+        guard let jsonArray = json[APIConstants.Ticket.items].array else {
+            return nil
+        }
+
+        var resultArray = [Ticket]()
+        for jsonItem in jsonArray {
+            let item = Ticket(from: jsonItem)
+            resultArray.append(item)
+        }
+
+        return resultArray
     }
 }

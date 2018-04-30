@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     private func loadData() {
         let tickets = TicketcoServerManager.shared.getTickets()
         tickets
-            .subscribe(onCompleted: {
-                print("Success!")
+            .subscribe(onNext: { ticketsArray in
+                print("Success! \n \(ticketsArray)")
             })
             .disposed(by: disposeBag)
     }
