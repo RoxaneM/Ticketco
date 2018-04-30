@@ -1,0 +1,5 @@
+# Lint configuration file
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - Ticketco/AppDelegate.swift
