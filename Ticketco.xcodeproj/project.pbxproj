@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3BC303EAD4F0CF70F1C27A43 /* Pods_Ticketco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44702481C94BB88043132038 /* Pods_Ticketco.framework */; };
+		7684EDE9209719D70023C216 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDE8209719D70023C216 /* Dictionary+Extension.swift */; };
+		7684EDEB20971EC30023C216 /* TicketcoServerManager+Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDEA20971EC30023C216 /* TicketcoServerManager+Tickets.swift */; };
 		76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D272096FCCA005657FB /* AppDelegate.swift */; };
 		76FD3D2A2096FCCA005657FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D292096FCCA005657FB /* ViewController.swift */; };
 		76FD3D2D2096FCCA005657FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D2B2096FCCA005657FB /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 		0752F2C7B510F05A1F244F76 /* Pods-Ticketco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ticketco.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ticketco/Pods-Ticketco.debug.xcconfig"; sourceTree = "<group>"; };
 		44702481C94BB88043132038 /* Pods_Ticketco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ticketco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E07363F44206F70167D19A /* Pods-Ticketco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ticketco.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ticketco/Pods-Ticketco.release.xcconfig"; sourceTree = "<group>"; };
+		7684EDE8209719D70023C216 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
+		7684EDEA20971EC30023C216 /* TicketcoServerManager+Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketcoServerManager+Tickets.swift"; sourceTree = "<group>"; };
 		76FD3D242096FCCA005657FB /* Ticketco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FD3D272096FCCA005657FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76FD3D292096FCCA005657FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7684EDE7209719B30023C216 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7684EDE8209719D70023C216 /* Dictionary+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		76FD3D1B2096FCC9005657FB = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +92,7 @@
 		76FD3D262096FCCA005657FB /* Ticketco */ = {
 			isa = PBXGroup;
 			children = (
+				7684EDE7209719B30023C216 /* Extensions */,
 				76FD3D3920970584005657FB /* API */,
 				76FD3D272096FCCA005657FB /* AppDelegate.swift */,
 				76FD3D292096FCCA005657FB /* ViewController.swift */,
@@ -95,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				76FD3D3A209705A5005657FB /* TicketcoServerManager.swift */,
+				7684EDEA20971EC30023C216 /* TicketcoServerManager+Tickets.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -235,8 +249,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				76FD3D3B209705A5005657FB /* TicketcoServerManager.swift in Sources */,
+				7684EDEB20971EC30023C216 /* TicketcoServerManager+Tickets.swift in Sources */,
 				76FD3D2A2096FCCA005657FB /* ViewController.swift in Sources */,
 				76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */,
+				7684EDE9209719D70023C216 /* Dictionary+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

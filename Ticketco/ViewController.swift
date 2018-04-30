@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import RxSwift
 
 class ViewController: UIViewController {
 
+    let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        loadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func loadData() {
+        let tickets = TicketcoServerManager.shared.getTickets()
+        tickets
+            .subscribe(onCompleted: {
+                print("Success!")
+            })
+            .disposed(by: disposeBag)
     }
 
 }
