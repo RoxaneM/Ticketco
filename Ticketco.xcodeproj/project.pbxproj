@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		3BC303EAD4F0CF70F1C27A43 /* Pods_Ticketco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44702481C94BB88043132038 /* Pods_Ticketco.framework */; };
+		761113472099E2AB0013A71B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761113462099E2AB0013A71B /* BaseViewController.swift */; };
+		7611134B2099E36B0013A71B /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761113492099E36B0013A71B /* TicketTableViewCell.swift */; };
+		7611134C2099E36B0013A71B /* TicketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7611134A2099E36B0013A71B /* TicketTableViewCell.xib */; };
+		7611134E2099E53A0013A71B /* UIColor+Ticketco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7611134D2099E53A0013A71B /* UIColor+Ticketco.swift */; };
+		761113502099E54C0013A71B /* UIFont+Ticketco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7611134F2099E54C0013A71B /* UIFont+Ticketco.swift */; };
 		7684EDE9209719D70023C216 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDE8209719D70023C216 /* Dictionary+Extension.swift */; };
 		7684EDEB20971EC30023C216 /* TicketcoServerManager+Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDEA20971EC30023C216 /* TicketcoServerManager+Tickets.swift */; };
 		7684EDEE209722A20023C216 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDED209722A20023C216 /* Ticket.swift */; };
 		7684EDF0209724BD0023C216 /* TicketcoConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDEF209724BD0023C216 /* TicketcoConstants.swift */; };
 		76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D272096FCCA005657FB /* AppDelegate.swift */; };
-		76FD3D2A2096FCCA005657FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D292096FCCA005657FB /* ViewController.swift */; };
+		76FD3D2A2096FCCA005657FB /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D292096FCCA005657FB /* TicketsViewController.swift */; };
 		76FD3D2D2096FCCA005657FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D2B2096FCCA005657FB /* Main.storyboard */; };
 		76FD3D2F2096FCCB005657FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D2E2096FCCB005657FB /* Assets.xcassets */; };
 		76FD3D322096FCCB005657FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D302096FCCB005657FB /* LaunchScreen.storyboard */; };
@@ -24,13 +29,18 @@
 		0752F2C7B510F05A1F244F76 /* Pods-Ticketco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ticketco.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ticketco/Pods-Ticketco.debug.xcconfig"; sourceTree = "<group>"; };
 		44702481C94BB88043132038 /* Pods_Ticketco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ticketco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E07363F44206F70167D19A /* Pods-Ticketco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ticketco.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ticketco/Pods-Ticketco.release.xcconfig"; sourceTree = "<group>"; };
+		761113462099E2AB0013A71B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		761113492099E36B0013A71B /* TicketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
+		7611134A2099E36B0013A71B /* TicketTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketTableViewCell.xib; sourceTree = "<group>"; };
+		7611134D2099E53A0013A71B /* UIColor+Ticketco.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ticketco.swift"; sourceTree = "<group>"; };
+		7611134F2099E54C0013A71B /* UIFont+Ticketco.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ticketco.swift"; sourceTree = "<group>"; };
 		7684EDE8209719D70023C216 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		7684EDEA20971EC30023C216 /* TicketcoServerManager+Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketcoServerManager+Tickets.swift"; sourceTree = "<group>"; };
 		7684EDED209722A20023C216 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		7684EDEF209724BD0023C216 /* TicketcoConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketcoConstants.swift; sourceTree = "<group>"; };
 		76FD3D242096FCCA005657FB /* Ticketco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FD3D272096FCCA005657FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		76FD3D292096FCCA005657FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		76FD3D292096FCCA005657FB /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
 		76FD3D2C2096FCCA005657FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76FD3D2E2096FCCB005657FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76FD3D312096FCCB005657FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,10 +77,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		761113452099E28D0013A71B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				761113462099E2AB0013A71B /* BaseViewController.swift */,
+				76FD3D292096FCCA005657FB /* TicketsViewController.swift */,
+				761113482099E3150013A71B /* TicketTableViewCell */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		761113482099E3150013A71B /* TicketTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				761113492099E36B0013A71B /* TicketTableViewCell.swift */,
+				7611134A2099E36B0013A71B /* TicketTableViewCell.xib */,
+			);
+			path = TicketTableViewCell;
+			sourceTree = "<group>";
+		};
 		7684EDE7209719B30023C216 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				7684EDE8209719D70023C216 /* Dictionary+Extension.swift */,
+				7611134D2099E53A0013A71B /* UIColor+Ticketco.swift */,
+				7611134F2099E54C0013A71B /* UIFont+Ticketco.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -104,16 +135,16 @@
 		76FD3D262096FCCA005657FB /* Ticketco */ = {
 			isa = PBXGroup;
 			children = (
+				7684EDEF209724BD0023C216 /* TicketcoConstants.swift */,
+				76FD3D272096FCCA005657FB /* AppDelegate.swift */,
 				7684EDE7209719B30023C216 /* Extensions */,
 				76FD3D3920970584005657FB /* API */,
 				7684EDEC2097228A0023C216 /* Model */,
-				76FD3D272096FCCA005657FB /* AppDelegate.swift */,
-				76FD3D292096FCCA005657FB /* ViewController.swift */,
-				76FD3D2B2096FCCA005657FB /* Main.storyboard */,
+				761113452099E28D0013A71B /* ViewControllers */,
 				76FD3D2E2096FCCB005657FB /* Assets.xcassets */,
+				76FD3D2B2096FCCA005657FB /* Main.storyboard */,
 				76FD3D302096FCCB005657FB /* LaunchScreen.storyboard */,
 				76FD3D332096FCCB005657FB /* Info.plist */,
-				7684EDEF209724BD0023C216 /* TicketcoConstants.swift */,
 			);
 			path = Ticketco;
 			sourceTree = "<group>";
@@ -191,6 +222,7 @@
 				76FD3D322096FCCB005657FB /* LaunchScreen.storyboard in Resources */,
 				76FD3D2F2096FCCB005657FB /* Assets.xcassets in Resources */,
 				76FD3D2D2096FCCA005657FB /* Main.storyboard in Resources */,
+				7611134C2099E36B0013A71B /* TicketTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,10 +297,14 @@
 				76FD3D3B209705A5005657FB /* TicketcoServerManager.swift in Sources */,
 				7684EDEE209722A20023C216 /* Ticket.swift in Sources */,
 				7684EDEB20971EC30023C216 /* TicketcoServerManager+Tickets.swift in Sources */,
-				76FD3D2A2096FCCA005657FB /* ViewController.swift in Sources */,
+				76FD3D2A2096FCCA005657FB /* TicketsViewController.swift in Sources */,
 				7684EDF0209724BD0023C216 /* TicketcoConstants.swift in Sources */,
+				761113472099E2AB0013A71B /* BaseViewController.swift in Sources */,
+				761113502099E54C0013A71B /* UIFont+Ticketco.swift in Sources */,
+				7611134B2099E36B0013A71B /* TicketTableViewCell.swift in Sources */,
 				76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */,
 				7684EDE9209719D70023C216 /* Dictionary+Extension.swift in Sources */,
+				7611134E2099E53A0013A71B /* UIColor+Ticketco.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
