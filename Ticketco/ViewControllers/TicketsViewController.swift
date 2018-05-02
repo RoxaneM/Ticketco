@@ -14,29 +14,20 @@ class TicketsViewController: BaseViewController {
 
     @IBOutlet weak var ticketsTableView: UITableView!
 
-    private let tickets = Variable([Ticket]())
-
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupUpdatesObservable()
         setupTableView()
-        loadData()
-    }
-
-    private func loadData() {
-        TicketcoServerManager.shared.getTickets()
-            .catchErrorJustReturn([Ticket]())
-            .bind(to: tickets)
-            .disposed(by: disposeBag)
     }
 
     private func setupTableView() {
         ticketsTableView.register(ticketTableViewCellNib,
                                  forCellReuseIdentifier: ticketTableViewCellIdentifier)
 
-        tickets.asObservable()
+        SynchronizationManager.shared.activeTickets.asObservable()
             .map { $0 }
             .catchErrorJustReturn ([Ticket]())
             .bind(to: ticketsTableView.rx.items) { (tableView: UITableView, index: Int, ticket: Ticket) in
@@ -48,21 +39,16 @@ class TicketsViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
 
-    @IBAction func load(_ sender: Any) {
-        print("All tickets from CD")
-
-        let array = CoreDataManager.shared.getAllTickets()
-        for ticket in array {
-            print(ticket)
-        }
+    private func setupUpdatesObservable() {
+        SynchronizationManager.shared.updateInfo.updateDate.asObservable()
+            .subscribe(onNext: { date in
+                print(date ?? "noDate")
+            })
+            .disposed(by: disposeBag)
     }
 
-    @IBAction func save(_ sender: Any) {
-        let ticket = Ticket()
-        ticket.ticketId = "2"
-        ticket.firstName = "NewName"
-
-        CoreDataManager.shared.removeTicket(ticket)
+    @IBAction func reload(_ sender: Any) {
+        SynchronizationManager.shared.refreshFromAPI()
     }
 
 }
