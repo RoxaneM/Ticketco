@@ -12,6 +12,7 @@ class CoreDataManager {
 
     static let shared = CoreDataManager()
 
+    // MARK: - Tickets
     func getAllTickets() -> [Ticket] {
         let request = CDTicket.fetchTicketsRequest()
 
@@ -29,13 +30,39 @@ class CoreDataManager {
     }
 
     func saveTicket(_ ticket: Ticket) {
-        let ticketManagedObject = CDTicket(with: ticket, in: managedContext)
+        if let existingTicketManagedObject = getTicketManagedObject(for: ticket.ticketId) {
+
+            existingTicketManagedObject.update(with: ticket)
+        } else {
+
+            _ = CDTicket(with: ticket, in: managedContext)
+        }
+
         saveContext()
     }
 
     func removeTicket(_ ticket: Ticket) {
 
     }
+
+    private func getTicketManagedObject(for ticketId: String) -> CDTicket? {
+        let request = CDTicket.fetchTicketsRequest()
+        request.predicate = CDTicket.equalTicketIdPredicate(ticketId)
+
+        do {
+
+            let results = try managedContext.fetch(request)
+            return results.first
+        } catch {
+
+            let nserror = error as NSError
+            fatalError("Error getting Tickets:\n \(nserror), \(nserror.userInfo)")
+        }
+
+        return nil
+    }
+
+    // MARK: - Tocket Types
 
     // MARK: - Core Data stack
     private lazy var persistentContainer: NSPersistentContainer = {

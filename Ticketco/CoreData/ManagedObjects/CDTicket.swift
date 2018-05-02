@@ -9,11 +9,14 @@
 import Foundation
 import CoreData
 
-//@objc(CDTicket)
-public class CDTicket: NSManagedObject {
+class CDTicket: NSManagedObject {
 
-    @nonobjc public class func fetchTicketsRequest() -> NSFetchRequest<CDTicket> {
+    class func fetchTicketsRequest() -> NSFetchRequest<CDTicket> {
         return NSFetchRequest<CDTicket>(entityName: "CDTicket")
+    }
+
+    class func equalTicketIdPredicate(_ ticketId: String) -> NSPredicate {
+        return NSPredicate(format: "ticketID == %@", ticketId)
     }
 
     @NSManaged public var ticketID: String?
@@ -25,6 +28,10 @@ public class CDTicket: NSManagedObject {
     convenience init(with ticket: Ticket, in context: NSManagedObjectContext) {
         self.init(context: context)
 
+        update(with: ticket)
+    }
+
+    func update(with ticket: Ticket) {
         ticketID = ticket.ticketId
         firstName = ticket.firstName
         lastName = ticket.lastName
@@ -39,7 +46,7 @@ public class CDTicket: NSManagedObject {
         ticket.lastName = lastName ?? ""
         ticket.referenceNumber = reference ?? ""
 
-        return Ticket()
+        return ticket
     }
 
 }
