@@ -21,6 +21,7 @@
 		76F09D5A209A4167003F9CE8 /* TicketcoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D58209A4167003F9CE8 /* TicketcoModel.xcdatamodeld */; };
 		76F09D68209A4325003F9CE8 /* CDTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D64209A4324003F9CE8 /* CDTicket.swift */; };
 		76F09D69209A4325003F9CE8 /* CDTicketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D65209A4324003F9CE8 /* CDTicketType.swift */; };
+		76F09D8E209A60E7003F9CE8 /* SynchronizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D8D209A60E7003F9CE8 /* SynchronizationManager.swift */; };
 		76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D272096FCCA005657FB /* AppDelegate.swift */; };
 		76FD3D2A2096FCCA005657FB /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D292096FCCA005657FB /* TicketsViewController.swift */; };
 		76FD3D2D2096FCCA005657FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D2B2096FCCA005657FB /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		76F09D59209A4167003F9CE8 /* TicketcoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TicketcoModel.xcdatamodel; sourceTree = "<group>"; };
 		76F09D64209A4324003F9CE8 /* CDTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CDTicket.swift; path = /Users/roxanegud/Projects/Ticketco/Ticketco/CoreData/ManagedObjects/CDTicket.swift; sourceTree = "<absolute>"; };
 		76F09D65209A4324003F9CE8 /* CDTicketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CDTicketType.swift; path = /Users/roxanegud/Projects/Ticketco/Ticketco/CoreData/ManagedObjects/CDTicketType.swift; sourceTree = "<absolute>"; };
+		76F09D8D209A60E7003F9CE8 /* SynchronizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationManager.swift; sourceTree = "<group>"; };
 		76FD3D242096FCCA005657FB /* Ticketco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FD3D272096FCCA005657FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76FD3D292096FCCA005657FB /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,14 @@
 			path = ManagedObjects;
 			sourceTree = "<group>";
 		};
+		76F09D8F209A60F7003F9CE8 /* Synchronization */ = {
+			isa = PBXGroup;
+			children = (
+				76F09D8D209A60E7003F9CE8 /* SynchronizationManager.swift */,
+			);
+			path = Synchronization;
+			sourceTree = "<group>";
+		};
 		76FD3D1B2096FCC9005657FB = {
 			isa = PBXGroup;
 			children = (
@@ -162,11 +172,12 @@
 		76FD3D262096FCCA005657FB /* Ticketco */ = {
 			isa = PBXGroup;
 			children = (
-				76F09D55209A4103003F9CE8 /* CoreData */,
 				7684EDEF209724BD0023C216 /* TicketcoConstants.swift */,
 				76FD3D272096FCCA005657FB /* AppDelegate.swift */,
 				7684EDE7209719B30023C216 /* Extensions */,
 				76FD3D3920970584005657FB /* API */,
+				76F09D55209A4103003F9CE8 /* CoreData */,
+				76F09D8F209A60F7003F9CE8 /* Synchronization */,
 				7684EDEC2097228A0023C216 /* Model */,
 				761113452099E28D0013A71B /* ViewControllers */,
 				76FD3D2E2096FCCB005657FB /* Assets.xcassets */,
@@ -326,6 +337,7 @@
 				76F09D5A209A4167003F9CE8 /* TicketcoModel.xcdatamodeld in Sources */,
 				7684EDEE209722A20023C216 /* Ticket.swift in Sources */,
 				7684EDEB20971EC30023C216 /* TicketcoServerManager+Tickets.swift in Sources */,
+				76F09D8E209A60E7003F9CE8 /* SynchronizationManager.swift in Sources */,
 				76FD3D2A2096FCCA005657FB /* TicketsViewController.swift in Sources */,
 				7684EDF0209724BD0023C216 /* TicketcoConstants.swift in Sources */,
 				761113472099E2AB0013A71B /* BaseViewController.swift in Sources */,

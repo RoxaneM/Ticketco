@@ -29,7 +29,7 @@ class CoreDataManager {
         return [Ticket]()
     }
 
-    func saveTicket(_ ticket: Ticket) {
+    func saveTicket(_ ticket: Ticket, saveImmediately: Bool = true) {
         if let existingTicketManagedObject = getTicketManagedObject(for: ticket.ticketId) {
 
             existingTicketManagedObject.update(with: ticket)
@@ -38,14 +38,14 @@ class CoreDataManager {
             _ = CDTicket(with: ticket, in: managedContext)
         }
 
-        saveContext()
+        if saveImmediately { saveContext() }
     }
 
-    func removeTicket(_ ticket: Ticket) {
+    func removeTicket(_ ticket: Ticket, saveImmediately: Bool = true) {
         if let existingTicketManagedObject = getTicketManagedObject(for: ticket.ticketId) {
 
             managedContext.delete(existingTicketManagedObject)
-            saveContext()
+            if saveImmediately { saveContext() }
         }
     }
 
@@ -84,7 +84,7 @@ class CoreDataManager {
         return persistentContainer.viewContext
     }
 
-    private func saveContext () {
+    func saveContext () {
         let context = managedContext
         if context.hasChanges {
             do {

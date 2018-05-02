@@ -47,7 +47,7 @@ class TicketsViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
     }
-    
+
     @IBAction func load(_ sender: Any) {
         print("All tickets from CD")
 
@@ -62,7 +62,7 @@ class TicketsViewController: BaseViewController {
         ticket.ticketId = "2"
         ticket.firstName = "NewName"
 
-        CoreDataManager.shared.saveTicket(ticket)
+        CoreDataManager.shared.removeTicket(ticket)
     }
 
 }
