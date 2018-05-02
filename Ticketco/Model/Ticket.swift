@@ -31,14 +31,14 @@ enum TicketOperationType {
 }
 
 class Ticket {
-    let ticketId: String
-    let typeId: String
+    var ticketId: String
+    var typeId: String
 
-    let firstName: String
-    let lastName: String
-    let referenceNumber: String
-    let isUsed: Bool
-    let operation: TicketOperationType
+    var firstName: String
+    var lastName: String
+    var referenceNumber: String
+    var isUsed: Bool
+    var operation: TicketOperationType
 
     init(from json: JSON) {
         let keys = APIConstants.Ticket.self
@@ -53,4 +53,17 @@ class Ticket {
 
         operation = TicketOperationType.getType(from: json[keys.operation].stringValue)
     }
+
+    init() {
+        ticketId = "1"
+        typeId = "default"
+
+        firstName = "Manon"
+        lastName = "Blackbeak"
+        referenceNumber = "whatevs"
+        isUsed = false
+
+        operation = .unknown
+    }
+
 }

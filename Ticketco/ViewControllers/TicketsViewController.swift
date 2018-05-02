@@ -47,5 +47,17 @@ class TicketsViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
     }
+    @IBAction func load(_ sender: Any) {
+        print("All tickets from CD")
+        let array = CoreDataManager.shared.getAllTickets()
+        for ticket in array {
+            print(ticket)
+        }
+    }
+
+    @IBAction func save(_ sender: Any) {
+        let ticket = Ticket()
+        CoreDataManager.shared.saveTicket(ticket)
+    }
 
 }

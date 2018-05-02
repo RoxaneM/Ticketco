@@ -17,6 +17,10 @@
 		7684EDEB20971EC30023C216 /* TicketcoServerManager+Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDEA20971EC30023C216 /* TicketcoServerManager+Tickets.swift */; };
 		7684EDEE209722A20023C216 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDED209722A20023C216 /* Ticket.swift */; };
 		7684EDF0209724BD0023C216 /* TicketcoConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684EDEF209724BD0023C216 /* TicketcoConstants.swift */; };
+		76F09D57209A411A003F9CE8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D56209A411A003F9CE8 /* CoreDataManager.swift */; };
+		76F09D5A209A4167003F9CE8 /* TicketcoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D58209A4167003F9CE8 /* TicketcoModel.xcdatamodeld */; };
+		76F09D68209A4325003F9CE8 /* CDTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D64209A4324003F9CE8 /* CDTicket.swift */; };
+		76F09D69209A4325003F9CE8 /* CDTicketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D65209A4324003F9CE8 /* CDTicketType.swift */; };
 		76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D272096FCCA005657FB /* AppDelegate.swift */; };
 		76FD3D2A2096FCCA005657FB /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D292096FCCA005657FB /* TicketsViewController.swift */; };
 		76FD3D2D2096FCCA005657FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D2B2096FCCA005657FB /* Main.storyboard */; };
@@ -38,6 +42,10 @@
 		7684EDEA20971EC30023C216 /* TicketcoServerManager+Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketcoServerManager+Tickets.swift"; sourceTree = "<group>"; };
 		7684EDED209722A20023C216 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		7684EDEF209724BD0023C216 /* TicketcoConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketcoConstants.swift; sourceTree = "<group>"; };
+		76F09D56209A411A003F9CE8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		76F09D59209A4167003F9CE8 /* TicketcoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TicketcoModel.xcdatamodel; sourceTree = "<group>"; };
+		76F09D64209A4324003F9CE8 /* CDTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CDTicket.swift; path = /Users/roxanegud/Projects/Ticketco/Ticketco/CoreData/ManagedObjects/CDTicket.swift; sourceTree = "<absolute>"; };
+		76F09D65209A4324003F9CE8 /* CDTicketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CDTicketType.swift; path = /Users/roxanegud/Projects/Ticketco/Ticketco/CoreData/ManagedObjects/CDTicketType.swift; sourceTree = "<absolute>"; };
 		76FD3D242096FCCA005657FB /* Ticketco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FD3D272096FCCA005657FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76FD3D292096FCCA005657FB /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +122,25 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		76F09D55209A4103003F9CE8 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				76F09D56209A411A003F9CE8 /* CoreDataManager.swift */,
+				76F09D58209A4167003F9CE8 /* TicketcoModel.xcdatamodeld */,
+				76F09D5B209A42BA003F9CE8 /* ManagedObjects */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		76F09D5B209A42BA003F9CE8 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				76F09D64209A4324003F9CE8 /* CDTicket.swift */,
+				76F09D65209A4324003F9CE8 /* CDTicketType.swift */,
+			);
+			path = ManagedObjects;
+			sourceTree = "<group>";
+		};
 		76FD3D1B2096FCC9005657FB = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +162,7 @@
 		76FD3D262096FCCA005657FB /* Ticketco */ = {
 			isa = PBXGroup;
 			children = (
+				76F09D55209A4103003F9CE8 /* CoreData */,
 				7684EDEF209724BD0023C216 /* TicketcoConstants.swift */,
 				76FD3D272096FCCA005657FB /* AppDelegate.swift */,
 				7684EDE7209719B30023C216 /* Extensions */,
@@ -295,15 +323,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				76FD3D3B209705A5005657FB /* TicketcoServerManager.swift in Sources */,
+				76F09D5A209A4167003F9CE8 /* TicketcoModel.xcdatamodeld in Sources */,
 				7684EDEE209722A20023C216 /* Ticket.swift in Sources */,
 				7684EDEB20971EC30023C216 /* TicketcoServerManager+Tickets.swift in Sources */,
 				76FD3D2A2096FCCA005657FB /* TicketsViewController.swift in Sources */,
 				7684EDF0209724BD0023C216 /* TicketcoConstants.swift in Sources */,
 				761113472099E2AB0013A71B /* BaseViewController.swift in Sources */,
+				76F09D57209A411A003F9CE8 /* CoreDataManager.swift in Sources */,
 				761113502099E54C0013A71B /* UIFont+Ticketco.swift in Sources */,
 				7611134B2099E36B0013A71B /* TicketTableViewCell.swift in Sources */,
+				76F09D68209A4325003F9CE8 /* CDTicket.swift in Sources */,
 				76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */,
 				7684EDE9209719D70023C216 /* Dictionary+Extension.swift in Sources */,
+				76F09D69209A4325003F9CE8 /* CDTicketType.swift in Sources */,
 				7611134E2099E53A0013A71B /* UIColor+Ticketco.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +538,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		76F09D58209A4167003F9CE8 /* TicketcoModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				76F09D59209A4167003F9CE8 /* TicketcoModel.xcdatamodel */,
+			);
+			currentVersion = 76F09D59209A4167003F9CE8 /* TicketcoModel.xcdatamodel */;
+			path = TicketcoModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 76FD3D1C2096FCCA005657FB /* Project object */;
 }
