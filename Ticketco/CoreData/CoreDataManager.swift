@@ -42,7 +42,11 @@ class CoreDataManager {
     }
 
     func removeTicket(_ ticket: Ticket) {
+        if let existingTicketManagedObject = getTicketManagedObject(for: ticket.ticketId) {
 
+            managedContext.delete(existingTicketManagedObject)
+            saveContext()
+        }
     }
 
     private func getTicketManagedObject(for ticketId: String) -> CDTicket? {
