@@ -20,7 +20,6 @@ extension UIColor {
     }
 
     struct Ticketco {
-        static let NavigationBarTextColor = TicketcoApp.DarkGreyColor
         static let TicketCellTextColor = TicketcoApp.DarkGreyColor
         static let TicketCellUsedTextColor = TicketcoApp.RedColor
         static let TicketCellNotUsedTextColor = TicketcoApp.GreenColor
@@ -29,6 +28,7 @@ extension UIColor {
         static let UpdateInfoHeaderTextColor = TicketcoApp.DarkGreyColor
         static let UpdateDateTextColor = TicketcoApp.GreyColor
         static let UpdateInfoHeaderBackgroundColor = TicketcoApp.LightGreyColor
+        static let RefreshIndicatorTintColor = TicketcoApp.GreyColor
     }
 
 // MARK: - Auxiliary

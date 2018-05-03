@@ -16,7 +16,6 @@ extension UIFont {
     }
 
     struct Ticketco {
-        static let NavigationBarFont = UIFont(name: Helvetica.bold, size: 15.0)
         static let TicketCellFont = UIFont(name: Helvetica.normal, size: 14.0)
         static let UpdateInfoHeaderFont = UIFont(name: Helvetica.bold, size: 14.0)
         static let UpdateDateFont = UIFont(name: Helvetica.light, size: 12.0)

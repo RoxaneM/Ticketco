@@ -28,6 +28,7 @@ class TicketsViewController: BaseViewController {
         ticketsTableView.register(ticketTableViewCellNib,
                                  forCellReuseIdentifier: ticketTableViewCellIdentifier)
         ticketsTableView.rx.setDelegate(self).disposed(by: disposeBag)
+        ticketsTableView.addSubview(refreshControl)
 
         SynchronizationManager.shared.activeTickets.asObservable()
             .map { $0 }
@@ -53,6 +54,23 @@ class TicketsViewController: BaseViewController {
         SynchronizationManager.shared.refreshFromAPI()
     }
 
+    // MARK: - Pull to refresh
+    //------------------------------------------------------------------------------
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self,
+                                 action: #selector(refresh),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.Ticketco.RefreshIndicatorTintColor
+
+        return refreshControl
+    }()
+
+    @objc func refresh() {
+        SynchronizationManager.shared.refreshFromAPI { [weak self] in
+            self?.refreshControl.endRefreshing()
+        }
+    }
 }
 
 extension TicketsViewController: UITableViewDelegate {

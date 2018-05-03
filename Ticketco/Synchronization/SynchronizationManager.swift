@@ -28,11 +28,12 @@ class SynchronizationManager {
         activeTickets.value = loadTicketsFromCoreData()
     }
 
-    func refreshFromAPI() {
+    func refreshFromAPI(completion: (() -> Void)? = nil) {
         TicketcoServerManager.shared.getTickets().asObservable()
             .catchErrorJustReturn([Ticket]())
             .subscribe(onNext: { [weak self] tickets in
                 self?.runUpdates(with: tickets)
+                completion?()
             })
             .disposed(by: disposeBag)
     }
