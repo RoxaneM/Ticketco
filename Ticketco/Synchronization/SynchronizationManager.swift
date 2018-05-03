@@ -50,7 +50,6 @@ class SynchronizationManager {
     }
 
     private func saveUpdateInfo(info: UpdateInfo) {
-        info.updateDate.value = Date()
         UserDefaults.standard.set(info.dictionary(), forKey: SynchronizationManager.lastUpdateKey)
     }
 
@@ -84,6 +83,7 @@ class SynchronizationManager {
         CoreDataManager.shared.saveContext()
         activeTickets.value = displayTickets
 
+        updateInfo.updateDate = Date()
         updatesSubject.onNext(updateInfo)
         saveUpdateInfo(info: updateInfo)
     }
@@ -94,13 +94,7 @@ struct UpdateInfo {
     var updated: Int = 0
     var removed: Int = 0
 
-    let updateDate: Variable<Date?> = Variable(nil)
-
-    mutating func reset() {
-        added = 0
-        updated = 0
-        removed = 0
-    }
+    var updateDate: Date?
 
     init() { }
 
@@ -118,7 +112,7 @@ struct UpdateInfo {
         dictionary.updateValue(updated, forKey: UpdateInfo.updatedKey)
         dictionary.updateValue(removed, forKey: UpdateInfo.removedKey)
 
-        if let date = updateDate.value {
+        if let date = updateDate {
             dictionary.updateValue(date, forKey: UpdateInfo.updateDateKey)
         }
 
@@ -130,6 +124,6 @@ struct UpdateInfo {
         added = dictionary[UpdateInfo.addedKey] as? Int ?? 0
         updated = dictionary[UpdateInfo.updatedKey] as? Int ?? 0
         removed = dictionary[UpdateInfo.removedKey] as? Int ?? 0
-        updateDate.value = dictionary[UpdateInfo.updateDateKey] as? Date
+        updateDate = dictionary[UpdateInfo.updateDateKey] as? Date
     }
 }

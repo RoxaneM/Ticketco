@@ -16,4 +16,13 @@ extension Date {
 
         return dateFormatter.string(from: self)
     }
+
+    func fullDescription() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd-hh-mm-ss"
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+
+        return dateFormatter.string(from: self)
+    }
 }

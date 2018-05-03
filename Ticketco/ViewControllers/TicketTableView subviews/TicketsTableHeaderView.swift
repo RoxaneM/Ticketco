@@ -27,9 +27,9 @@ class TicketsTableHeaderView: UIView {
         updatedLabel.text = "Updated # \(info.updated)"
         removedLabel.text = "Deleted # \(info.removed)"
 
-        if let dateDescription = info.updateDate.value?.mediumDescription() {
+        if let dateDescription = info.updateDate?.fullDescription() {
             lastUpdateDateLabel.isHidden = false
-            lastUpdateDateLabel.text = "Last update # \(dateDescription)"
+            lastUpdateDateLabel.text = "Last update: \(dateDescription)"
         } else {
             lastUpdateDateLabel.isHidden = true
         }
