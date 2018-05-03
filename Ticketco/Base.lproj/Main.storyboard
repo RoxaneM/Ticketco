@@ -20,6 +20,58 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tw6-lx-ebq">
                                 <rect key="frame" x="0.0" y="20" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="Qbz-ff-ggf" customClass="TicketsTableHeaderView" customModule="Ticketco" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhb-Mf-BEK">
+                                            <rect key="frame" x="16" y="8" width="343" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUv-rF-apb">
+                                            <rect key="frame" x="16" y="34.5" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sc-TS-QY0">
+                                            <rect key="frame" x="16" y="57" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPR-b7-qaX">
+                                            <rect key="frame" x="16" y="79.5" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="qhb-Mf-BEK" firstAttribute="leading" secondItem="Qbz-ff-ggf" secondAttribute="leading" constant="16" id="0hj-Yd-Hy2"/>
+                                        <constraint firstAttribute="bottom" secondItem="PPR-b7-qaX" secondAttribute="bottom" constant="8" id="24d-CD-kx3"/>
+                                        <constraint firstItem="TUv-rF-apb" firstAttribute="height" secondItem="qhb-Mf-BEK" secondAttribute="height" id="2Zv-B1-btU"/>
+                                        <constraint firstItem="PPR-b7-qaX" firstAttribute="height" secondItem="8sc-TS-QY0" secondAttribute="height" id="6lr-sg-Aci"/>
+                                        <constraint firstItem="TUv-rF-apb" firstAttribute="leading" secondItem="qhb-Mf-BEK" secondAttribute="leading" id="ArS-WE-pwl"/>
+                                        <constraint firstItem="PPR-b7-qaX" firstAttribute="top" secondItem="8sc-TS-QY0" secondAttribute="bottom" constant="2" id="CX2-42-ZUg"/>
+                                        <constraint firstItem="8sc-TS-QY0" firstAttribute="leading" secondItem="TUv-rF-apb" secondAttribute="leading" id="Rcg-WZ-8sr"/>
+                                        <constraint firstItem="8sc-TS-QY0" firstAttribute="top" secondItem="TUv-rF-apb" secondAttribute="bottom" constant="2" id="UbM-aO-Gva"/>
+                                        <constraint firstAttribute="trailing" secondItem="qhb-Mf-BEK" secondAttribute="trailing" constant="16" id="d0X-F0-Hih"/>
+                                        <constraint firstItem="TUv-rF-apb" firstAttribute="top" secondItem="qhb-Mf-BEK" secondAttribute="bottom" constant="6" id="dYi-Dn-8KB"/>
+                                        <constraint firstItem="PPR-b7-qaX" firstAttribute="leading" secondItem="8sc-TS-QY0" secondAttribute="leading" id="kDU-LD-HKY"/>
+                                        <constraint firstItem="qhb-Mf-BEK" firstAttribute="top" secondItem="Qbz-ff-ggf" secondAttribute="top" constant="8" id="txm-km-1w8"/>
+                                        <constraint firstItem="8sc-TS-QY0" firstAttribute="height" secondItem="TUv-rF-apb" secondAttribute="height" id="w6M-Zq-uZ1"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="addedLabel" destination="TUv-rF-apb" id="89M-Vc-1xC"/>
+                                        <outlet property="lastUpdateDateLabel" destination="qhb-Mf-BEK" id="pbq-zn-t8F"/>
+                                        <outlet property="removedLabel" destination="PPR-b7-qaX" id="ldA-I5-RDr"/>
+                                        <outlet property="updatedLabel" destination="8sc-TS-QY0" id="Qa6-H8-nsJ"/>
+                                    </connections>
+                                </view>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x0-B8-wUP">
                                 <rect key="frame" x="23" y="617" width="43" height="30"/>
@@ -41,6 +93,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="ticketsTableHeaderView" destination="Qbz-ff-ggf" id="CS5-iU-UED"/>
                         <outlet property="ticketsTableView" destination="Tw6-lx-ebq" id="O14-tg-asO"/>
                     </connections>
                 </viewController>

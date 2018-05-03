@@ -11,15 +11,20 @@ import RxSwift
 
 class SynchronizationManager {
     private static let lastUpdateKey = "SynchronizationManagerLastUpdate"
-    private let disposeBag = DisposeBag()
 
     static let shared = SynchronizationManager()
-    var updateInfo = UpdateInfo()
 
     let activeTickets = Variable([Ticket]())
 
+    var updates: Observable<UpdateInfo> {
+        return updatesSubject.asObservable()
+    }
+
+    private let updatesSubject = BehaviorSubject(value: UpdateInfo())
+    private let disposeBag = DisposeBag()
+
     init() {
-        updateInfo = getLastUpdateInfo()
+        updatesSubject.onNext(getLastUpdateInfo())
         activeTickets.value = loadTicketsFromCoreData()
     }
 
@@ -44,13 +49,13 @@ class SynchronizationManager {
         return UpdateInfo()
     }
 
-    private func saveLastUpdateInfo() {
-        updateInfo.updateDate.value = Date()
-        UserDefaults.standard.set(updateInfo.dictionary(), forKey: SynchronizationManager.lastUpdateKey)
+    private func saveUpdateInfo(info: UpdateInfo) {
+        info.updateDate.value = Date()
+        UserDefaults.standard.set(info.dictionary(), forKey: SynchronizationManager.lastUpdateKey)
     }
 
     private func runUpdates(with tickets: [Ticket]) {
-        updateInfo.reset()
+        var updateInfo = UpdateInfo()
         var displayTickets = [Ticket]()
 
         for ticket in tickets {
@@ -59,17 +64,17 @@ class SynchronizationManager {
             case .add:
 
                 updateInfo.added += 1
-                CoreDataManager.shared.saveTicket(ticket, saveImmediately: false)
+                //CoreDataManager.shared.saveTicket(ticket, saveImmediately: false)
                 displayTickets.append(ticket)
             case .update:
 
                 updateInfo.updated += 1
-                CoreDataManager.shared.saveTicket(ticket, saveImmediately: false)
+                //CoreDataManager.shared.saveTicket(ticket, saveImmediately: false)
                 displayTickets.append(ticket)
             case .remove:
 
                 updateInfo.removed += 1
-                CoreDataManager.shared.removeTicket(ticket, saveImmediately: false)
+                //CoreDataManager.shared.removeTicket(ticket, saveImmediately: false)
             case .unknown:
 
                 print("⚠️Warning: no ticket should have unknown operation type!")
@@ -78,7 +83,9 @@ class SynchronizationManager {
 
         CoreDataManager.shared.saveContext()
         activeTickets.value = displayTickets
-        saveLastUpdateInfo()
+
+        updatesSubject.onNext(updateInfo)
+        saveUpdateInfo(info: updateInfo)
     }
 }
 

@@ -14,8 +14,9 @@ extension UIColor {
         static let BlackColor = UIColor(hex: 0x000000)
         static let RedColor = UIColor(hex: 0xFC4A1A)
         static let GreenColor = UIColor(hex: 0x5FD98C)
+        static let GreyColor = UIColor(hex: 0xA0A0A0)
         static let DarkGreyColor = UIColor(hex: 0x526173)
-        static let LightGreyColor = UIColor(hex: 0xB3BBBE)
+        static let LightGreyColor = UIColor(hex: 0xF0F0F0)
     }
 
     struct Ticketco {
@@ -24,6 +25,10 @@ extension UIColor {
         static let TicketCellUsedTextColor = TicketcoApp.RedColor
         static let TicketCellNotUsedTextColor = TicketcoApp.GreenColor
         static let TicketCellBackgroundColor = TicketcoApp.WhiteColor
+
+        static let UpdateInfoHeaderTextColor = TicketcoApp.DarkGreyColor
+        static let UpdateDateTextColor = TicketcoApp.GreyColor
+        static let UpdateInfoHeaderBackgroundColor = TicketcoApp.LightGreyColor
     }
 
 // MARK: - Auxiliary

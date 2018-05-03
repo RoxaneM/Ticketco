@@ -13,6 +13,7 @@ import RxCocoa
 class TicketsViewController: BaseViewController {
 
     @IBOutlet weak var ticketsTableView: UITableView!
+    @IBOutlet weak var ticketsTableHeaderView: TicketsTableHeaderView!
 
     let disposeBag = DisposeBag()
 
@@ -26,6 +27,7 @@ class TicketsViewController: BaseViewController {
     private func setupTableView() {
         ticketsTableView.register(ticketTableViewCellNib,
                                  forCellReuseIdentifier: ticketTableViewCellIdentifier)
+        ticketsTableView.rx.setDelegate(self).disposed(by: disposeBag)
 
         SynchronizationManager.shared.activeTickets.asObservable()
             .map { $0 }
@@ -40,9 +42,9 @@ class TicketsViewController: BaseViewController {
     }
 
     private func setupUpdatesObservable() {
-        SynchronizationManager.shared.updateInfo.updateDate.asObservable()
-            .subscribe(onNext: { date in
-                print(date ?? "noDate")
+        SynchronizationManager.shared.updates
+            .subscribe(onNext: { [weak self] updateInfo in
+                self?.ticketsTableHeaderView.update(with: updateInfo)
             })
             .disposed(by: disposeBag)
     }
@@ -51,4 +53,14 @@ class TicketsViewController: BaseViewController {
         SynchronizationManager.shared.refreshFromAPI()
     }
 
+}
+
+extension TicketsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return ticketsTableHeaderView
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return ticketsTableHeaderView.frame.height
+    }
 }

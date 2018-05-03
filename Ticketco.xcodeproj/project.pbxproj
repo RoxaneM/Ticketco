@@ -22,6 +22,8 @@
 		76F09D68209A4325003F9CE8 /* CDTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D64209A4324003F9CE8 /* CDTicket.swift */; };
 		76F09D69209A4325003F9CE8 /* CDTicketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D65209A4324003F9CE8 /* CDTicketType.swift */; };
 		76F09D8E209A60E7003F9CE8 /* SynchronizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D8D209A60E7003F9CE8 /* SynchronizationManager.swift */; };
+		76F09D91209B6DB4003F9CE8 /* TicketsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D90209B6DB3003F9CE8 /* TicketsTableHeaderView.swift */; };
+		76F09D93209B6FCF003F9CE8 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D92209B6FCF003F9CE8 /* Date+Extension.swift */; };
 		76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D272096FCCA005657FB /* AppDelegate.swift */; };
 		76FD3D2A2096FCCA005657FB /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D292096FCCA005657FB /* TicketsViewController.swift */; };
 		76FD3D2D2096FCCA005657FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D2B2096FCCA005657FB /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		76F09D64209A4324003F9CE8 /* CDTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CDTicket.swift; path = /Users/roxanegud/Projects/Ticketco/Ticketco/CoreData/ManagedObjects/CDTicket.swift; sourceTree = "<absolute>"; };
 		76F09D65209A4324003F9CE8 /* CDTicketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CDTicketType.swift; path = /Users/roxanegud/Projects/Ticketco/Ticketco/CoreData/ManagedObjects/CDTicketType.swift; sourceTree = "<absolute>"; };
 		76F09D8D209A60E7003F9CE8 /* SynchronizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationManager.swift; sourceTree = "<group>"; };
+		76F09D90209B6DB3003F9CE8 /* TicketsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsTableHeaderView.swift; sourceTree = "<group>"; };
+		76F09D92209B6FCF003F9CE8 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		76FD3D242096FCCA005657FB /* Ticketco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FD3D272096FCCA005657FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76FD3D292096FCCA005657FB /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
@@ -92,26 +96,28 @@
 			children = (
 				761113462099E2AB0013A71B /* BaseViewController.swift */,
 				76FD3D292096FCCA005657FB /* TicketsViewController.swift */,
-				761113482099E3150013A71B /* TicketTableViewCell */,
+				761113482099E3150013A71B /* TicketTableView subviews */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		761113482099E3150013A71B /* TicketTableViewCell */ = {
+		761113482099E3150013A71B /* TicketTableView subviews */ = {
 			isa = PBXGroup;
 			children = (
+				76F09D90209B6DB3003F9CE8 /* TicketsTableHeaderView.swift */,
 				761113492099E36B0013A71B /* TicketTableViewCell.swift */,
 				7611134A2099E36B0013A71B /* TicketTableViewCell.xib */,
 			);
-			path = TicketTableViewCell;
+			path = "TicketTableView subviews";
 			sourceTree = "<group>";
 		};
 		7684EDE7209719B30023C216 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7684EDE8209719D70023C216 /* Dictionary+Extension.swift */,
 				7611134D2099E53A0013A71B /* UIColor+Ticketco.swift */,
 				7611134F2099E54C0013A71B /* UIFont+Ticketco.swift */,
+				7684EDE8209719D70023C216 /* Dictionary+Extension.swift */,
+				76F09D92209B6FCF003F9CE8 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76FD3D3B209705A5005657FB /* TicketcoServerManager.swift in Sources */,
+				76F09D91209B6DB4003F9CE8 /* TicketsTableHeaderView.swift in Sources */,
 				76F09D5A209A4167003F9CE8 /* TicketcoModel.xcdatamodeld in Sources */,
 				7684EDEE209722A20023C216 /* Ticket.swift in Sources */,
 				7684EDEB20971EC30023C216 /* TicketcoServerManager+Tickets.swift in Sources */,
@@ -349,6 +356,7 @@
 				7684EDE9209719D70023C216 /* Dictionary+Extension.swift in Sources */,
 				76F09D69209A4325003F9CE8 /* CDTicketType.swift in Sources */,
 				7611134E2099E53A0013A71B /* UIColor+Ticketco.swift in Sources */,
+				76F09D93209B6FCF003F9CE8 /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
