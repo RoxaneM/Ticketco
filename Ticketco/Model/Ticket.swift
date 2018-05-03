@@ -56,7 +56,7 @@ class Ticket {
 
     init() {
         ticketId = "1"
-        typeId = "default"
+        typeId = "NoTypeForNow"
 
         firstName = "Manon"
         lastName = "Blackbeak"

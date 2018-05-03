@@ -45,12 +45,13 @@ class SynchronizationManager {
     }
 
     private func saveLastUpdateInfo() {
+        updateInfo.updateDate.value = Date()
         UserDefaults.standard.set(updateInfo.dictionary(), forKey: SynchronizationManager.lastUpdateKey)
     }
 
     private func runUpdates(with tickets: [Ticket]) {
         updateInfo.reset()
-        var newTickets = [Ticket]()
+        var displayTickets = [Ticket]()
 
         for ticket in tickets {
 
@@ -59,12 +60,12 @@ class SynchronizationManager {
 
                 updateInfo.added += 1
                 CoreDataManager.shared.saveTicket(ticket, saveImmediately: false)
-                newTickets.append(ticket)
+                displayTickets.append(ticket)
             case .update:
 
                 updateInfo.updated += 1
                 CoreDataManager.shared.saveTicket(ticket, saveImmediately: false)
-                newTickets.append(ticket)
+                displayTickets.append(ticket)
             case .remove:
 
                 updateInfo.removed += 1
@@ -76,7 +77,7 @@ class SynchronizationManager {
         }
 
         CoreDataManager.shared.saveContext()
-        activeTickets.value = newTickets
+        activeTickets.value = displayTickets
         saveLastUpdateInfo()
     }
 }

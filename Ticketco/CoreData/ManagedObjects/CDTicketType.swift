@@ -16,7 +16,7 @@ public class CDTicketType: NSManagedObject {
         return NSFetchRequest<CDTicketType>(entityName: "CDTicketType")
     }
 
-    @NSManaged public var typeID: String?
-    @NSManaged public var name: String?
+    @NSManaged public var typeID: String
+    @NSManaged public var name: String
 
 }

@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CDTicket" representedClassName=".CDTicket" syncable="YES">
-        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="reference" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="ticketID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" attributeType="String" syncable="YES"/>
+        <attribute name="reference" attributeType="String" syncable="YES"/>
+        <attribute name="ticketID" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
         <relationship name="type" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="CDTicketType" syncable="YES"/>
+        <fetchIndex name="byTicketIDIndex">
+            <fetchIndexElement property="ticketID" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
     <entity name="CDTicketType" representedClassName=".CDTicketType" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="typeID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="typeID" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <fetchIndex name="byTypeIDIndex">
+            <fetchIndexElement property="typeID" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
     <elements>
         <element name="CDTicketType" positionX="-63" positionY="-18" width="128" height="75"/>

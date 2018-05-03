@@ -19,10 +19,10 @@ class CDTicket: NSManagedObject {
         return NSPredicate(format: "ticketID == %@", ticketId)
     }
 
-    @NSManaged public var ticketID: String?
-    @NSManaged public var firstName: String?
-    @NSManaged public var lastName: String?
-    @NSManaged public var reference: String?
+    @NSManaged public var ticketID: String
+    @NSManaged public var firstName: String
+    @NSManaged public var lastName: String
+    @NSManaged public var reference: String
     @NSManaged public var type: CDTicketType?
 
     convenience init(with ticket: Ticket, in context: NSManagedObjectContext) {
@@ -41,10 +41,10 @@ class CDTicket: NSManagedObject {
     func ticket() -> Ticket {
         let ticket = Ticket()
 
-        ticket.ticketId = ticketID ?? ""
-        ticket.firstName = firstName ?? ""
-        ticket.lastName = lastName ?? ""
-        ticket.referenceNumber = reference ?? ""
+        ticket.ticketId = ticketID
+        ticket.firstName = firstName
+        ticket.lastName = lastName
+        ticket.referenceNumber = reference
 
         return ticket
     }

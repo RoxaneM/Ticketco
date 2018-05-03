@@ -66,7 +66,7 @@ class CoreDataManager {
         return nil
     }
 
-    // MARK: - Tocket Types
+    // MARK: - Ticket Types
 
     // MARK: - Core Data stack
     private lazy var persistentContainer: NSPersistentContainer = {
