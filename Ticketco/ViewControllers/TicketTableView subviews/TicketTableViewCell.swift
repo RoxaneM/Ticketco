@@ -27,7 +27,7 @@ class TicketTableViewCell: UITableViewCell {
     }
 
     func update(with ticket: Ticket) {
-        typeLabel.text = ticket.typeId
+        typeLabel.text = ticket.type?.name ?? ticket.typeId
         firstNameLabel.text = ticket.firstName
         lastNameLabel.text = ticket.lastName
         referenceLabel.text = ticket.referenceNumber

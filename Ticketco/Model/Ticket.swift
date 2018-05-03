@@ -30,7 +30,11 @@ enum TicketOperationType {
     }
 }
 
-class Ticket {
+class Ticket: Equatable {
+    static func == (lhs: Ticket, rhs: Ticket) -> Bool {
+        return lhs.ticketId == rhs.ticketId
+    }
+
     var ticketId: String
     var typeId: String
 
@@ -39,6 +43,8 @@ class Ticket {
     var referenceNumber: String
     var isUsed: Bool
     var operation: TicketOperationType
+
+    var type: TicketType?
 
     init(from json: JSON) {
         let keys = APIConstants.Ticket.self

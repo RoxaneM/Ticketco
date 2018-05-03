@@ -24,6 +24,8 @@
 		76F09D8E209A60E7003F9CE8 /* SynchronizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D8D209A60E7003F9CE8 /* SynchronizationManager.swift */; };
 		76F09D91209B6DB4003F9CE8 /* TicketsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D90209B6DB3003F9CE8 /* TicketsTableHeaderView.swift */; };
 		76F09D93209B6FCF003F9CE8 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D92209B6FCF003F9CE8 /* Date+Extension.swift */; };
+		76F09D95209BC429003F9CE8 /* TicketcoServerManager+TicketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D94209BC428003F9CE8 /* TicketcoServerManager+TicketTypes.swift */; };
+		76F09D97209BC451003F9CE8 /* TicketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F09D96209BC451003F9CE8 /* TicketType.swift */; };
 		76FD3D282096FCCA005657FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D272096FCCA005657FB /* AppDelegate.swift */; };
 		76FD3D2A2096FCCA005657FB /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD3D292096FCCA005657FB /* TicketsViewController.swift */; };
 		76FD3D2D2096FCCA005657FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76FD3D2B2096FCCA005657FB /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		76F09D8D209A60E7003F9CE8 /* SynchronizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationManager.swift; sourceTree = "<group>"; };
 		76F09D90209B6DB3003F9CE8 /* TicketsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsTableHeaderView.swift; sourceTree = "<group>"; };
 		76F09D92209B6FCF003F9CE8 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		76F09D94209BC428003F9CE8 /* TicketcoServerManager+TicketTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketcoServerManager+TicketTypes.swift"; sourceTree = "<group>"; };
+		76F09D96209BC451003F9CE8 /* TicketType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketType.swift; sourceTree = "<group>"; };
 		76FD3D242096FCCA005657FB /* Ticketco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ticketco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FD3D272096FCCA005657FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76FD3D292096FCCA005657FB /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				7684EDED209722A20023C216 /* Ticket.swift */,
+				76F09D96209BC451003F9CE8 /* TicketType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			children = (
 				76FD3D3A209705A5005657FB /* TicketcoServerManager.swift */,
 				7684EDEA20971EC30023C216 /* TicketcoServerManager+Tickets.swift */,
+				76F09D94209BC428003F9CE8 /* TicketcoServerManager+TicketTypes.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -344,9 +350,11 @@
 				76F09D5A209A4167003F9CE8 /* TicketcoModel.xcdatamodeld in Sources */,
 				7684EDEE209722A20023C216 /* Ticket.swift in Sources */,
 				7684EDEB20971EC30023C216 /* TicketcoServerManager+Tickets.swift in Sources */,
+				76F09D95209BC429003F9CE8 /* TicketcoServerManager+TicketTypes.swift in Sources */,
 				76F09D8E209A60E7003F9CE8 /* SynchronizationManager.swift in Sources */,
 				76FD3D2A2096FCCA005657FB /* TicketsViewController.swift in Sources */,
 				7684EDF0209724BD0023C216 /* TicketcoConstants.swift in Sources */,
+				76F09D97209BC451003F9CE8 /* TicketType.swift in Sources */,
 				761113472099E2AB0013A71B /* BaseViewController.swift in Sources */,
 				76F09D57209A411A003F9CE8 /* CoreDataManager.swift in Sources */,
 				761113502099E54C0013A71B /* UIFont+Ticketco.swift in Sources */,

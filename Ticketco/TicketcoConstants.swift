@@ -20,6 +20,13 @@ final class APIConstants {
 
     }
 
+    struct TicketType {
+        static let items = "item_types"
+
+        static let typeId = "id"
+        static let name = "title"
+    }
+
     struct Operation {
         static let add = "add"
         static let update = "replace"

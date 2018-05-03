@@ -15,6 +15,7 @@ class CoreDataManager {
     // MARK: - Tickets
     func getAllTickets() -> [Ticket] {
         let request = CDTicket.fetchTicketsRequest()
+        request.relationshipKeyPathsForPrefetching = ["type"]
 
         do {
 
@@ -54,12 +55,20 @@ class CoreDataManager {
                             saveImmediately: Bool = true) {
         let context = context ?? defaultContext
 
-        if let existingTicketManagedObject = getTicketManagedObject(for: ticket.ticketId, in: context) {
+        let ticketManagedObject = getTicketManagedObject(for: ticket.ticketId, in: context) ??
+            CDTicket(context: context)
 
-            existingTicketManagedObject.update(with: ticket)
-        } else {
+        ticketManagedObject.update(with: ticket)
+        if ticketManagedObject.type == nil || ticketManagedObject.type?.typeID != ticket.typeId {
+            if let typeManagedObject = getTicketTypeManagedObject(for: ticket.typeId, in: context) {
 
-            _ = CDTicket(with: ticket, in: context)
+                ticketManagedObject.type = typeManagedObject
+            } else {
+
+                if let type = ticket.type {
+                    ticketManagedObject.type = CDTicketType(with: type, in: context)
+                }
+            }
         }
 
         if saveImmediately { saveContext(context) }
@@ -98,6 +107,42 @@ class CoreDataManager {
     }
 
     // MARK: - Ticket Types
+    func getTicketType(for typeId: String) -> TicketType? {
+        return getTicketTypeManagedObject(for: typeId)?.ticketType()
+    }
+
+    private func saveTicketType(_ type: TicketType,
+                                in context: NSManagedObjectContext? = nil,
+                                saveImmediately: Bool = true) {
+        let context = context ?? defaultContext
+
+        let ticketTypeManagedObject = getTicketTypeManagedObject(for: type.typeId, in: context) ??
+            CDTicketType(context: context)
+
+        ticketTypeManagedObject.update(with: type)
+
+        if saveImmediately { saveContext(context) }
+    }
+
+    private func getTicketTypeManagedObject(for typeId: String,
+                                            in context: NSManagedObjectContext? = nil) -> CDTicketType? {
+        let context = context ?? defaultContext
+
+        let request = CDTicketType.fetchTicketTypesRequest()
+        request.predicate = CDTicketType.equalTicketTypeIdPredicate(typeId)
+
+        do {
+
+            let results = try context.fetch(request)
+            return results.first
+        } catch {
+
+            let nserror = error as NSError
+            fatalError("Error getting Tickets:\n \(nserror), \(nserror.userInfo)")
+        }
+
+        return nil
+    }
 
     // MARK: - Core Data stack
     private lazy var persistentContainer: NSPersistentContainer = {

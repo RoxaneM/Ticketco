@@ -25,12 +25,6 @@ class CDTicket: NSManagedObject {
     @NSManaged public var reference: String
     @NSManaged public var type: CDTicketType?
 
-    convenience init(with ticket: Ticket, in context: NSManagedObjectContext) {
-        self.init(context: context)
-
-        update(with: ticket)
-    }
-
     func update(with ticket: Ticket) {
         ticketID = ticket.ticketId
         firstName = ticket.firstName
@@ -45,6 +39,8 @@ class CDTicket: NSManagedObject {
         ticket.firstName = firstName
         ticket.lastName = lastName
         ticket.referenceNumber = reference
+
+        ticket.type = type?.ticketType()
 
         return ticket
     }

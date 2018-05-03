@@ -29,21 +29,33 @@ class SynchronizationManager {
     }
 
     func refreshFromAPI(completion: (() -> Void)? = nil) {
-        TicketcoServerManager.shared.getTickets().asObservable()
-            .catchErrorJustReturn([Ticket]())
-            .subscribe(onNext: { [weak self] tickets in
-                self?.runUpdates(with: tickets)
+        _ = Observable.combineLatest(
+            TicketcoServerManager.shared.getTickets().asObservable(),
+            TicketcoServerManager.shared.getTicketTypes().asObservable())
+
+            .catchErrorJustReturn(([Ticket](), [TicketType]()))
+            .subscribe(onNext: { [weak self] (tickets, types) in
+                self?.runUpdates(with: tickets, types)
                 completion?()
             })
             .disposed(by: disposeBag)
     }
 
     // MARK: - Private
-    private func runUpdates(with tickets: [Ticket]) {
+    private func runUpdates(with tickets: [Ticket], _ types: [TicketType]) {
         var updateInfo = UpdateInfo()
         var displayTickets = [Ticket]()
 
         for ticket in tickets {
+
+            if let type = CoreDataManager.shared.getTicketType(for: ticket.typeId) {
+                ticket.type = type
+            } else {
+                for type in types where type.typeId == ticket.typeId {
+                    ticket.type = type
+                    break
+                }
+            }
 
             switch ticket.operation {
             case .add:
