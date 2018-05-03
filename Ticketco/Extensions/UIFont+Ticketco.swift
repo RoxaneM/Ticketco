@@ -9,16 +9,16 @@
 import UIKit
 
 extension UIFont {
-    private struct OpenSans {
-        static let semibold = "OpenSans-Semibold"
-        static let normal = "OpenSans"
-        static let bold   = "OpenSans-Bold"
+    private struct Helvetica {
+        static let normal = "Helvetica"
+        static let light = "Helvetica-Light"
+        static let bold   = "Helvetica-Bold"
     }
 
     struct Ticketco {
-        static let NavigationBarFont = UIFont(name: OpenSans.bold, size: 15.0)
-        static let TicketCellFont = UIFont(name: OpenSans.normal, size: 14.0)
-        static let UpdateInfoHeaderFont = UIFont(name: OpenSans.semibold, size: 14.0)
-        static let UpdateDateFont = UIFont(name: OpenSans.normal, size: 10.0)
+        static let NavigationBarFont = UIFont(name: Helvetica.bold, size: 15.0)
+        static let TicketCellFont = UIFont(name: Helvetica.normal, size: 14.0)
+        static let UpdateInfoHeaderFont = UIFont(name: Helvetica.bold, size: 14.0)
+        static let UpdateDateFont = UIFont(name: Helvetica.light, size: 12.0)
     }
 }
