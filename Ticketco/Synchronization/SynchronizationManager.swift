@@ -12,16 +12,16 @@ import RxSwift
 class SynchronizationManager {
     private static let lastUpdateKey = "SynchronizationManagerLastUpdate"
 
-    static let shared = SynchronizationManager()
+    private let updatesSubject = BehaviorSubject(value: UpdateInfo())
+    private let disposeBag = DisposeBag()
 
+    // MARK: - Public
+    static let shared = SynchronizationManager()
     let activeTickets = Variable([Ticket]())
 
     var updates: Observable<UpdateInfo> {
         return updatesSubject.asObservable()
     }
-
-    private let updatesSubject = BehaviorSubject(value: UpdateInfo())
-    private let disposeBag = DisposeBag()
 
     init() {
         updatesSubject.onNext(getLastUpdateInfo())
@@ -38,8 +38,36 @@ class SynchronizationManager {
     }
 
     // MARK: - Private
-    private func loadTicketsFromCoreData() -> [Ticket] {
-        return CoreDataManager.shared.getAllTickets()
+    private func runUpdates(with tickets: [Ticket]) {
+        var updateInfo = UpdateInfo()
+        var displayTickets = [Ticket]()
+
+        for ticket in tickets {
+
+            switch ticket.operation {
+            case .add:
+
+                updateInfo.added += 1
+                displayTickets.append(ticket)
+            case .update:
+
+                updateInfo.updated += 1
+                displayTickets.append(ticket)
+            case .remove:
+
+                updateInfo.removed += 1
+            case .unknown:
+
+                print("⚠️Warning: no ticket should have unknown operation type!")
+            }
+        }
+
+        saveTicketsToCoreData(tickets)
+        activeTickets.value = displayTickets
+
+        updateInfo.updateDate = Date()
+        updatesSubject.onNext(updateInfo)
+        saveUpdateInfo(info: updateInfo)
     }
 
     private func getLastUpdateInfo() -> UpdateInfo {
@@ -53,42 +81,17 @@ class SynchronizationManager {
         UserDefaults.standard.set(info.dictionary(), forKey: SynchronizationManager.lastUpdateKey)
     }
 
-    private func runUpdates(with tickets: [Ticket]) {
-        var updateInfo = UpdateInfo()
-        var displayTickets = [Ticket]()
+    // MARK: Core Data
+    private func loadTicketsFromCoreData() -> [Ticket] {
+        return CoreDataManager.shared.getAllTickets()
+    }
 
-        for ticket in tickets {
-
-            switch ticket.operation {
-            case .add:
-
-                updateInfo.added += 1
-                //CoreDataManager.shared.saveTicket(ticket, saveImmediately: false)
-                displayTickets.append(ticket)
-            case .update:
-
-                updateInfo.updated += 1
-                //CoreDataManager.shared.saveTicket(ticket, saveImmediately: false)
-                displayTickets.append(ticket)
-            case .remove:
-
-                updateInfo.removed += 1
-                //CoreDataManager.shared.removeTicket(ticket, saveImmediately: false)
-            case .unknown:
-
-                print("⚠️Warning: no ticket should have unknown operation type!")
-            }
-        }
-
-        CoreDataManager.shared.saveContext()
-        activeTickets.value = displayTickets
-
-        updateInfo.updateDate = Date()
-        updatesSubject.onNext(updateInfo)
-        saveUpdateInfo(info: updateInfo)
+    private func saveTicketsToCoreData(_ tickets: [Ticket]) {
+        CoreDataManager.shared.updateAllTickets(tickets)
     }
 }
-
+// MARK: - Update Info
+//------------------------------------------------------------------------------
 struct UpdateInfo {
     var added: Int = 0
     var updated: Int = 0
@@ -98,8 +101,7 @@ struct UpdateInfo {
 
     init() { }
 
-    // MARK: - NSCoding compliable
-    //------------------------------------------------------------------------------
+    // MARK: NSCoding compliable
     static let addedKey = "added"
     static let updatedKey = "updated"
     static let removedKey = "removed"
